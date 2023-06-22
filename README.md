@@ -14,7 +14,7 @@ Reusable templates and structure
 
 ## Tech Stack
 
-`Java` `Maven` `JUnit` `Selenium`
+`Appium` `Java` `Maven` `JUnit` `Selenium`
 
 ## Key Files Description
 
