@@ -1,8 +1,11 @@
 # MAFAO_Android_TestAutomation
 
 Created by Joana Sol Del Valle https://sites.google.com/view/sol-del-valle/english
+
 GitHub: https://github.com/soldelv
+
 LinkedIn: https://www.linkedin.com/in/jsoldelvalle/
+
 Portfolio: https://www.gitshowcase.com/soldelv
 
 ## Project Overview
