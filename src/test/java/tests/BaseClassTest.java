@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class BaseClassTest {
-    protected AppiumDriver<MobileElement> driver;
+    /*protected AppiumDriver<MobileElement> driver;
     private static Process emulatorProcess;
 
     @Before
@@ -23,7 +23,7 @@ public class BaseClassTest {
         capabilities.setCapability("deviceName", "emulator-5554");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("platformVersion", "8.1.0");
-        capabilities.setCapability("app", "C:/Users/User01/Downloads/Mafao-v1.2.71.146.release.apk");
+        capabilities.setCapability("app", "C:/Users/User01/Downloads/Mafao-v1.2.72.147.release.apk");
 
         // Set Appium server URL
         URL appiumServerURL = new URL("http://localhost:4723/wd/hub");
@@ -55,5 +55,5 @@ public class BaseClassTest {
 
         // Wait for the emulator to start
         Thread.sleep(5000);
-    }
+    }*/
 }
