@@ -1,0 +1,307 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>org.example</groupId>
+<artifactId>MAFAO</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>jar</packaging>
+
+<name>qa-ios-test</name>
+<url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <default.branch>main</default.branch>
+    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+    <dataproviderthreadcount.value>3</dataproviderthreadcount.value>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
+    <cucumber.java.version>5.7.0</cucumber.java.version>
+    <cucumber.version>7.2.0</cucumber.version>
+    <selenium.version>4.1.2</selenium.version>
+    <webdrivermanager.version>4.4.3</webdrivermanager.version>
+    <jacoco.skip.instrument>false</jacoco.skip.instrument>
+    <jacoco.version>0.7.5.201505241946</jacoco.version>
+    <mockito.version>2.28.2</mockito.version>
+    <oracle.version>11.2.0.3</oracle.version>
+  </properties>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.0</version>
+      <configuration>
+        <source>14</source>
+        <target>14</target>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <executions>
+        <execution>
+          <goals>
+            <goal>test-jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>${maven-surefire-plugin.version}</version>
+
+      <configuration>
+        <skipTests>false</skipTests>
+        <properties>
+          <property>
+            <name>dataproviderthreadcount</name>
+            <value>${dataproviderthreadcount.value}</value>
+          </property>
+        </properties>
+        <testFailureIgnore>true</testFailureIgnore>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+
+<dependencies>
+  <!-- Appium -->
+  <dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>7.4.1</version>
+  </dependency>
+
+  <!-- Selenium -->
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+  </dependency>
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-server</artifactId>
+    <version>3.141.59</version>
+  </dependency>
+
+  <!--  Cucumber  -->
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <scope>test</scope>
+    <version>${cucumber.version}</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-jvm</artifactId>
+    <type>pom</type>
+    <version>${cucumber.version}</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-core</artifactId>
+    <scope>compile</scope>
+    <version>${cucumber.version}</version>
+  </dependency>
+
+  <dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>1.2.5</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-picocontainer</artifactId>
+    <version>${cucumber.version}</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-csv</artifactId>
+    <version>1.5</version>
+  </dependency>
+
+
+  <!-- JUnit -->
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.1</version>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <scope>test</scope>
+    <version>7.0.0</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>gherkin</artifactId>
+    <version>5.1.0</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>gherkin-jvm-deps</artifactId>
+    <version>1.0.4</version>
+  </dependency>
+
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit-platform-engine</artifactId>
+    <version>${cucumber.version}</version>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-console</artifactId>
+    <version>1.8.2</version>
+    <scope>test</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-suite</artifactId>
+    <version>1.8.2</version>
+    <scope>test</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-commons</artifactId>
+    <version>1.7.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.junit</groupId>
+    <artifactId>junit-bom</artifactId>
+    <version>5.7.0-M1</version>
+    <type>pom</type>
+  </dependency>
+
+  <!-- Other dependencies -->
+  <dependency>
+    <groupId>net.bytebuddy</groupId>
+    <artifactId>byte-buddy</artifactId>
+    <version>1.9.12</version>
+  </dependency>
+
+  <dependency>
+    <groupId>net.bytebuddy</groupId>
+    <artifactId>byte-buddy-agent</artifactId>
+    <version>1.9.15</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>RELEASE</version>
+    <scope>test</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>org.webjars.bower</groupId>
+    <artifactId>js-url</artifactId>
+    <version>2.6.3</version>
+  </dependency>
+
+  <!-- Dependencies for Cucumber JVM Report -->
+  <!-- Jacoco -->
+  <dependency>
+    <groupId>org.jacoco</groupId>
+    <artifactId>org.jacoco.agent</artifactId>
+    <scope>test</scope>
+    <version>0.8.8</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.8</version>
+  </dependency>
+
+  <!-- Cucumber reporting dependency -->
+  <dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.7.5</version>
+    <scope>test</scope>
+  </dependency>
+
+  <!-- Cucumber reporting dependency -->
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-html</artifactId>
+    <version>0.2.7</version>
+  </dependency>
+
+  <dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-sandwich</artifactId>
+    <version>5.7.5</version>
+  </dependency>
+  <dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-apache</artifactId>
+    <version>2.1.2</version>
+  </dependency>
+  <dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-apache</artifactId>
+    <version>2.1.2</version>
+  </dependency>
+  <dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.6</version>
+  </dependency>
+    <dependency>
+        <groupId>org.webjars.npm</groupId>
+        <artifactId>swipebox-10quality</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+  <dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>swipebox-10quality</artifactId>
+    <version>2.0.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>swipebox-10quality</artifactId>
+    <version>2.0.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>swipebox-10quality</artifactId>
+    <version>2.0.0</version>
+  </dependency>
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>RELEASE</version>
+        <scope>compile</scope>
+    </dependency>
+  <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>RELEASE</version>
+    <scope>compile</scope>
+  </dependency>
+  <!-- PostgreSQL JDBC driver -->
+  <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.6.0</version>
+  </dependency>
+
+</dependencies>
+
+</project>
