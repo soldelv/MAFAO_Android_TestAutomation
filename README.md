@@ -33,7 +33,7 @@ Reusable templates and structure
 
 Use the command below to clone the repository to your local directory
 
-`git clone https://github.com/newstartao/Mobile_Web_Appium_Framework.git`
+`git clone https://github.com/newstartao/Mobile_Appium_Framework.git`
 
 
 ## Resources
