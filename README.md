@@ -3,6 +3,7 @@
 
 ## Project Overview
 Test Automation Framework for MAFAO Mobile Applications with Appium, Java, JUnit and Maven, BDD with Cucumber and Page Object Model design pattern
+
 Reusable templates and structure
 
 ## Tech Stack
@@ -32,6 +33,7 @@ Reusable templates and structure
 ## Clone the repository and run the project
 
 Use the command below to clone the repository to your local directory
+
 
 `git clone https://github.com/newstartao/Mobile_Appium_Framework.git`
 
